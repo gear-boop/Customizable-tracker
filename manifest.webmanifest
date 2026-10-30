@@ -1,0 +1,14 @@
+{
+  "name": "Customizable tracker",
+  "short_name": "tracker",
+  "description": "A gentle daily habit tracker with a short news briefing.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff3f6",
+  "theme_color": "#f472b6",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
