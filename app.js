@@ -84,7 +84,6 @@ function toast(msg) {
     $app.innerHTML = `<div class="wrap"><div class="card"><h2>Could not load your data</h2><p class="sub">${esc(e.message)}</p></div></div>`;
   }
 })();
-// ONBOARDING — a full questionnaire before anything is saved
 function renderOnboarding() {
   const answers = {
     name: "",
@@ -438,8 +437,6 @@ function renderDashboard(state) {
 
   for (const h of state.habits) bindHabitCard(h, prefs, today);
 }
-
-// you can choose these yourself
 const QUOTES = [
   ["We are what we repeatedly do. Excellence, then, is not an act but a habit.", "Aristotle"],
   ["You do not rise to the level of your goals. You fall to the level of your systems.", "James Clear"],
@@ -513,7 +510,6 @@ function renderNewsLists() {
 function heatMap(month) {
   if (!month || !month.length) return '<div class="empty">No history yet.</div>';
   const total = month[0].total;
-  // align columns to weekdays (Mon-first) so rows read as real weeks
   const firstDow = new Date(month[0].date + "T00:00:00").getDay();
   const blanks = Array.from({ length: (firstDow + 6) % 7 }, () => '<div class="heat-cell blank"></div>').join("");
   const head = DAY_LETTERS.map((l) => `<div class="heat-dow">${l}</div>`).join("");
@@ -626,7 +622,6 @@ function bindHabitCard(h, prefs, today) {
       const act = el.dataset.act;
       try {
         if (act === "toggle") {
-          // optimistic: flip the button and the progress summary instantly, then sync
           const nowDone = !el.classList.contains("done");
           el.classList.toggle("done", nowDone);
           el.setAttribute("aria-pressed", String(nowDone));
